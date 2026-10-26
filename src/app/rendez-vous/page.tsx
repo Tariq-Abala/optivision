@@ -9,11 +9,14 @@ import {
   Phone,
   ShieldCheck,
   CheckCircle2,
-  AlertCircle,
   MessageCircle,
   Sparkles,
   ArrowRight,
   Info,
+  Award,
+  Glasses,
+  Printer,
+  ChevronRight,
 } from "lucide-react";
 
 export default function AppointmentPage() {
@@ -55,13 +58,13 @@ export default function AppointmentPage() {
     }
 
     // Generate simulated reference
-    const refCode = "OPT-SIM-" + Math.floor(10000 + Math.random() * 90000);
+    const refCode = "OPT-2026-" + Math.floor(1000 + Math.random() * 9000);
     setSimulatedRef(refCode);
     setSubmitted(true);
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Bonjour OptiVision, je souhaite prendre rendez-vous pour : ${motif} à la boutique de ${boutique.split("—")[0].trim()}. Nom : ${fullName || "Client"}.`
+    `Bonjour OptiVision, je souhaite confirmer mon rendez-vous (${simulatedRef}) pour : ${motif} à la boutique de ${boutique.split("—")[0].trim()} le ${date} à ${time}. Nom : ${fullName}.`
   );
 
   return (
@@ -69,120 +72,172 @@ export default function AppointmentPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F3EF] border border-[#E8E5DF] text-xs font-mono font-semibold text-[#805C18] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F3EF] border border-[#E8E5DF] text-xs font-mono font-semibold text-[#805C18] mb-3">
             <Calendar className="w-3.5 h-3.5 text-[#B48628]" />
-            <span>PRISE DE RENDEZ-VOUS OPTOMÉTRIQUE</span>
+            <span>PRISE DE RENDEZ-VOUS PRIVÉ EN SALON</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#111827]">
-            Réserver Votre Visite Privée
+            Planifier Votre Visite Privée
           </h1>
 
           <p className="text-sm text-[#4B5563] mt-3 leading-relaxed">
-            Choisissez votre boutique et votre horaire souhaité pour un examen de la vue approfondi ou une séance d&apos;essayage de montures avec nos visagistes.
+            Profitez d’un accueil d’exception et d’un créneau dédié avec nos optométristes diplômés d’État dans nos boutiques de Casablanca et Rabat.
           </p>
         </div>
 
         {/* Form or Confirmation Card */}
         <div className="bg-white rounded-3xl border border-[#E8E5DF] p-6 sm:p-10 shadow-lg">
           {submitted ? (
-            /* Honest Demonstration Confirmation Screen */
-            <div className="text-center py-6 space-y-6">
-              <div className="w-16 h-16 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#059669] flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#B48628]">
-                  SIMULATION ENREGISTRÉE AVEC SUCCÈS
+            /* Luxury Executive Confirmation Screen with Authentic Photography */
+            <div className="space-y-8 animate-in fade-in duration-300">
+              {/* Header Badge */}
+              <div className="text-center space-y-2">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#B48628] to-[#805C18] text-white flex items-center justify-center mx-auto shadow-md shadow-[#B48628]/20">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#B48628] block pt-1">
+                  DEMANDE ENREGISTRÉE AVEC SUCCÈS
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#111827]">
-                  Demande de Rendez-vous Simulée
+                  Votre Visite en Boutique est Pré-Réservée
                 </h2>
-              </div>
-
-              {/* Explicit Mandatory Demo Notice as requested */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#FFFBEB] border border-[#FDE68A] text-left text-xs text-[#92400E] space-y-2">
-                <div className="flex items-center gap-2 font-bold text-[#78350F]">
-                  <AlertCircle className="w-4 h-4 text-[#D97706] shrink-0" />
-                  <span>Avis Transparent de Démonstration :</span>
-                </div>
-                <p className="leading-relaxed">
-                  Ce site web est une réalisation de démonstration conçue dans le cadre du portfolio professionnel de <strong>Tariq Abala</strong>.
-                  Cette soumission est une <strong>simulation interactive</strong> : aucune donnée n&apos;est transmise à un magasin physique réel et <strong>aucun créneau effectif n&apos;a été réservé en boutique</strong>.
-                </p>
-                <p className="leading-relaxed">
-                  Pour contacter une véritable boutique ou tester l&apos;interaction WhatsApp, utilisez le bouton direct ci-dessous :
+                <p className="text-xs text-[#6B7280]">
+                  Numéro de dossier de visite : <strong className="font-mono text-[#111827]">{simulatedRef}</strong>
                 </p>
               </div>
 
-              {/* Simulated Summary Receipt */}
-              <div className="p-5 rounded-2xl bg-[#FAFAF8] border border-[#E8E5DF] text-xs text-left space-y-2 max-w-md mx-auto">
-                <div className="flex justify-between py-1 border-b border-[#E8E5DF]">
-                  <span className="text-[#6B7280]">Référence Simulation :</span>
-                  <span className="font-mono font-bold text-[#B48628]">{simulatedRef}</span>
+              {/* Boarding-pass / Voucher Style Card with Boutique Photography */}
+              <div className="rounded-2xl border border-[#E8E5DF] bg-[#FAFAF8] overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-12">
+                {/* Visual Boutique Photo */}
+                <div className="md:col-span-5 relative min-h-[220px] md:min-h-full">
+                  <img
+                    src="/images/boutique/consultation.jpg"
+                    alt="Salon OptiVision"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-4 text-white">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#ECD9B6] font-bold">
+                      Accueil VIP Garanti
+                    </span>
+                    <p className="text-xs font-serif font-bold">Salon OptiVision Haute Lunetterie</p>
+                    <p className="text-[10px] text-white/80">Casablanca &amp; Rabat</p>
+                  </div>
                 </div>
-                <div className="flex justify-between py-1 border-b border-[#E8E5DF]">
-                  <span className="text-[#6B7280]">Client :</span>
-                  <span className="font-semibold text-[#111827]">{fullName}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-[#E8E5DF]">
-                  <span className="text-[#6B7280]">Boutique choisie :</span>
-                  <span className="font-medium text-[#111827] text-right">{boutique}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-[#E8E5DF]">
-                  <span className="text-[#6B7280]">Prestation :</span>
-                  <span className="font-medium text-[#111827] text-right">{motif}</span>
-                </div>
-                <div className="flex justify-between py-1 border-b border-[#E8E5DF]">
-                  <span className="text-[#6B7280]">Date &amp; Heure :</span>
-                  <span className="font-medium text-[#111827]">{date} à {time}</span>
-                </div>
-                <div className="flex justify-between py-1">
-                  <span className="text-[#6B7280]">Téléphone :</span>
-                  <span className="font-mono text-[#111827]">{phone}</span>
+
+                {/* Details Column */}
+                <div className="md:col-span-7 p-6 space-y-3 text-xs">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E8E5DF]">
+                    <span className="text-[10px] uppercase tracking-widest font-mono text-[#805C18] font-bold">
+                      Détails de la Visite
+                    </span>
+                    <span className="font-mono font-bold text-[#059669] px-2 py-0.5 rounded bg-[#ECFDF5] border border-[#A7F3D0]">
+                      Statut : Confirmé
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-[#6B7280]">Nom du Client :</span>
+                      <span className="font-semibold text-[#111827]">{fullName}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-[#6B7280]">Boutique Sélectionnée :</span>
+                      <span className="font-medium text-[#111827] text-right">{boutique}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-[#6B7280]">Prestation :</span>
+                      <span className="font-medium text-[#B48628] text-right">{motif}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-[#6B7280]">Date &amp; Horaire :</span>
+                      <span className="font-bold text-[#111827]">{date} à {time}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-[#6B7280]">Téléphone Contact :</span>
+                      <span className="font-mono text-[#111827]">{phone}</span>
+                    </div>
+
+                    {notes && (
+                      <div className="pt-2 border-t border-[#E8E5DF] text-[11px] text-[#6B7280]">
+                        <span className="font-medium text-[#111827]">Remarques :</span> {notes}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* Elegant Executive Notice Card (Replacing harsh yellow warning box) */}
+              <div className="p-5 rounded-2xl bg-[#FCF9F2] border border-[#ECD9B6] text-left text-xs space-y-2.5">
+                <div className="flex items-center gap-2 font-bold text-[#805C18]">
+                  <Sparkles className="w-4 h-4 text-[#B48628] shrink-0" />
+                  <span>Note Professionnelle du Site Vitrine :</span>
+                </div>
+                <p className="text-[#4B5563] leading-relaxed">
+                  Ce site web a été conçu et développé d&apos;une manière professionnelle par <strong>Tariq Abala</strong> pour valoriser le savoir-faire de la haute lunetterie.
+                  Cette soumission est une <strong>simulation interactive pour le portfolio</strong>. Aucun créneau effectif n&apos;est enregistré dans une base de données de magasin physique.
+                </p>
+                <p className="text-[#4B5563] leading-relaxed">
+                  Pour tester l&apos;intégration WhatsApp avec ce modèle de rendez-vous ou contacter notre standard réel, utilisez les boutons ci-dessous :
+                </p>
+              </div>
+
+              {/* Luxury CTAs */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={`https://wa.me/212661203040?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#059669] hover:bg-[#047857] text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all"
+                >
+                  <MessageCircle className="w-4 h-4 text-white" />
+                  <span>Confirmer via WhatsApp (+212 6 61 20 30 40)</span>
+                </a>
+
+                <a
+                  href="tel:+212522203040"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#E8E5DF] text-[#111827] text-xs font-bold uppercase tracking-wider hover:bg-[#F5F3EF]"
+                >
+                  <Phone className="w-4 h-4 text-[#B48628]" />
+                  <span>Appeler la Boutique</span>
+                </a>
+
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     setFullName("");
                     setPhone("");
                     setEmail("");
+                    setNotes("");
                   }}
-                  className="px-6 py-2.5 rounded-full bg-white border border-[#E8E5DF] text-[#111827] text-xs font-semibold hover:bg-[#F5F3EF]"
+                  className="w-full sm:w-auto px-5 py-3.5 rounded-full bg-transparent text-[#6B7280] text-xs font-semibold hover:text-[#111827]"
                 >
-                  Effectuer un autre test de formulaire
+                  Nouveau test
                 </button>
-
-                <a
-                  href={`https://wa.me/212661203040?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[#065F46] text-xs font-bold hover:bg-[#D1FAE5]"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#059669]" />
-                  <span>Ouvrir WhatsApp avec ces informations</span>
-                </a>
               </div>
             </div>
           ) : (
             /* Booking Form */
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Demo Notice Banner */}
-              <div className="p-3.5 rounded-xl bg-[#F5F3EF] border border-[#E8E5DF] flex items-start gap-2.5 text-xs text-[#4B5563]">
-                <Info className="w-4 h-4 text-[#B48628] shrink-0 mt-0.5" />
-                <span>
-                  <strong>Formulaire de démonstration :</strong> Renseignez vos coordonnées ci-dessous pour tester la validation. Une confirmation transparente vous sera affichée.
+              {/* Refined Privilege Banner */}
+              <div className="p-4 rounded-2xl bg-[#FCF9F2] border border-[#ECD9B6] flex items-center justify-between gap-3 text-xs text-[#805C18]">
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-[#B48628] shrink-0" />
+                  <span>
+                    <strong>Service Privilège OptiVision :</strong> Créneau dédié de 30 minutes avec un optométriste diplômé d&apos;État.
+                  </span>
+                </div>
+                <span className="hidden sm:inline-block text-[10px] uppercase font-mono tracking-widest px-2.5 py-1 rounded bg-white border border-[#ECD9B6] font-bold text-[#805C18]">
+                  Portfolio Tariq Abala
                 </span>
               </div>
 
               {errorMsg && (
                 <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{errorMsg}</span>
                 </div>
               )}
