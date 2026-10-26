@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const viewport: Viewport = {
   themeColor: "#FAFAF8",
@@ -8,10 +10,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "OptiVision | Centre Optique Premium",
+  title: "OptiVision | Haute Lunetterie & Optométrie • Casablanca & Rabat",
   description:
-    "OptiVision — Votre centre optique de confiance à Casablanca et Rabat. Lunettes de vue de créateurs, solaires de luxe, lentilles de contact et examens de vue 3D.",
-  keywords: ["opticien", "lunettes", "optique", "lentilles", "examen de vue", "OptiVision", "Casablanca", "Rabat"],
+    "Maison d'optique haut de gamme à Casablanca (Triangle d'Or) et Rabat (Agdal). Montures de créateurs, lunettes de soleil de luxe, verres progressifs Essilor et examens de vue 3D.",
+  keywords: [
+    "OptiVision",
+    "opticien casablanca",
+    "opticien rabat",
+    "lunettes de luxe",
+    "montures titane",
+    "lindberg maroc",
+    "cartier lunettes",
+    "examen de vue casablanca",
+    "verres progressifs",
+  ],
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.ico" },
 };
@@ -20,9 +32,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className="min-h-screen bg-[#FAFAF8] text-[#1A1A1A] antialiased transition-colors duration-200">
-        {children}
+    <html lang="fr" className="scroll-smooth" data-scroll-behavior="smooth">
+      <body className="min-h-screen flex flex-col bg-[#FAFAF8] text-[#111827] antialiased">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
