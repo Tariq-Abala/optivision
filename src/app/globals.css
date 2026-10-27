@@ -61,3 +61,55 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #B48628;
 }
+
+/* Luxury micro-animations */
+@keyframes gold-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.luxury-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.luxury-card:hover {
+  transform: translateY(-5px);
+  border-color: #B48628;
+  box-shadow: 0 20px 30px -10px rgba(180, 134, 40, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+}
+
+.animate-gentle-float {
+  animation: gentle-float 5s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.btn-luxury-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-luxury-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+.btn-luxury-shimmer:hover::after {
+  transform: translateX(100%);
+}
