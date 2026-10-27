@@ -138,27 +138,46 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar with Developer Credit and Notice */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#6B7280]">
-          <div>
-            <p className="font-medium text-[#111827]">
-              Développé par Tariq Abala d&apos;une manière professionnelle
+        <div className="pt-8 border-t border-[#E8E5DF] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs text-[#6B7280]">
+          <div className="space-y-1">
+            <p className="font-semibold text-[#111827] flex items-center gap-1.5">
+              <span>Développé par</span>
+              <a
+                href="https://tariqabala.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#B48628] hover:text-[#805C18] font-bold underline decoration-[#B48628]/40 hover:decoration-[#805C18] transition-colors"
+              >
+                Tariq Abala
+              </a>
             </p>
-            <p className="text-[11px] text-[#9CA3AF] mt-0.5 font-mono">
-              Next.js 16 • React 19 • Tailwind CSS • Vercel Ready
+            <p className="text-[11px] font-medium text-[#374151]">
+              Web Development &amp; Digital Solutions
+            </p>
+            <p className="text-[10px] text-[#6B7280] font-mono">
+              Professional Websites • Business Applications • Custom Admin Panels
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-[11px]">
-            <span>© 2026 OptiVision Maroc SARL. Tous droits réservés.</span>
-            <Link href="/mentions-legales" className="hover:underline">
-              Mentions Légales
-            </Link>
-            <Link href="/confidentialite" className="hover:underline">
-              Confidentialité
-            </Link>
-            <Link href="/contact" className="hover:underline">
-              Plan d&apos;accès
-            </Link>
+          <div className="flex flex-col md:items-end gap-2 text-[11px]">
+            <div className="flex flex-wrap items-center gap-2 text-[#374151]">
+              <span className="font-semibold">© 2026 TARIQ ABALA. Tous droits réservés.</span>
+              <span className="text-[#D1D5DB]">•</span>
+              <span>OptiVision Maroc SARL</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-[#6B7280]">
+              <Link href="/mentions-legales" className="hover:text-[#111827] transition-colors">
+                Mentions Légales
+              </Link>
+              <span>•</span>
+              <Link href="/confidentialite" className="hover:text-[#111827] transition-colors">
+                Confidentialité
+              </Link>
+              <span>•</span>
+              <Link href="/contact" className="hover:text-[#111827] transition-colors">
+                Plan d&apos;accès
+              </Link>
+            </div>
           </div>
         </div>
       </div>

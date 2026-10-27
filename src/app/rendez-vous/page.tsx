@@ -178,7 +178,16 @@ export default function AppointmentPage() {
                   <span>Note Professionnelle du Site Vitrine :</span>
                 </div>
                 <p className="text-[#4B5563] leading-relaxed">
-                  Ce site web a été conçu et développé d&apos;une manière professionnelle par <strong>Tariq Abala</strong> pour valoriser le savoir-faire de la haute lunetterie.
+                  Ce site web a été conçu et développé par{" "}
+                  <a
+                    href="https://tariqabala.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#B48628] hover:underline"
+                  >
+                    Tariq Abala
+                  </a>{" "}
+                  (Web Development &amp; Digital Solutions).
                   Cette soumission est une <strong>simulation interactive pour le portfolio</strong>. Aucun créneau effectif n&apos;est enregistré dans une base de données de magasin physique.
                 </p>
                 <p className="text-[#4B5563] leading-relaxed">

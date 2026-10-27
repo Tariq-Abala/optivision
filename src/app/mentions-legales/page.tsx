@@ -76,11 +76,25 @@ export default function MentionsLegalesPage() {
             <h2 className="text-lg font-serif font-bold text-[#111827]">
               4. Conception &amp; Développement Numérique
             </h2>
-            <div className="p-4 rounded-2xl bg-[#F5F3EF] border border-[#E8E5DF] text-xs text-[#374151]">
-              <p className="font-semibold text-[#111827]">
-                Développé par Tariq Abala d&apos;une manière professionnelle
+            <div className="p-4 rounded-2xl bg-[#F5F3EF] border border-[#E8E5DF] text-xs text-[#374151] space-y-1.5">
+              <p className="font-semibold text-[#111827] flex items-center gap-1.5">
+                <span>Développé par</span>
+                <a
+                  href="https://tariqabala.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#B48628] hover:text-[#805C18] font-bold underline decoration-[#B48628]/50"
+                >
+                  Tariq Abala
+                </a>
               </p>
-              <p className="text-[11px] text-[#6B7280] mt-1">
+              <p className="text-xs font-semibold text-[#111827]">
+                © 2026 TARIQ ABALA — Web Development &amp; Digital Solutions
+              </p>
+              <p className="text-[11px] text-[#4B5563]">
+                Professional Websites • Business Applications • Custom Admin Panels
+              </p>
+              <p className="text-[11px] text-[#6B7280] pt-1.5 border-t border-[#E8E5DF]">
                 Architecture logicielle moderne avec Next.js 16 (App Router), React 19, TypeScript et Tailwind CSS.
                 Site vitrine conçu à titre de démonstration pour le portfolio de l&apos;ingénieur développeur Tariq Abala.
               </p>
